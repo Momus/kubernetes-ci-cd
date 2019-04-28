@@ -1,0 +1,72 @@
+* Up and Running
+*** Install
+***** Docker
+      #+BEGIN_SRC sh :results verbatim
+        docker version
+        docker ps -a
+      #+END_SRC
+
+      #+RESULTS:
+      #+begin_example
+      Client:
+       Version:           18.09.4
+       API version:       1.39
+       Go version:        go1.10.8
+       Git commit:        d14af54
+       Built:             Wed Mar 27 18:35:31 2019
+       OS/Arch:           linux/amd64
+       Experimental:      false
+
+      Server: Docker Engine - Community
+       Engine:
+        Version:          18.09.4
+        API version:      1.39 (minimum version 1.12)
+        Go version:       go1.10.8
+        Git commit:       d14af54
+        Built:            Wed Mar 27 18:04:46 2019
+        OS/Arch:          linux/amd64
+        Experimental:     false
+      CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                         PORTS               NAMES
+      bb3a49528cd1        hello-world         "/hello"            About an hour ago   Exited (0) About an hour ago                       objective_kepler
+      #+end_example
+
+***** Minikube
+      #+BEGIN_SRC sh :results verbatim
+      minikube version
+      #+END_SRC
+
+      #+RESULTS:
+      : minikube version: v1.0.0
+***** Kubectl
+      #+BEGIN_SRC sh :results verbatim
+      kubectl version
+      #+END_SRC
+
+      #+RESULTS:
+
+***** Helm
+      #+BEGIN_SRC sh 
+      curl -LO https://git.io/get_helm.sh
+      #+END_SRC
+      #+BEGIN_SRC sh
+      which helm
+      #+END_SRC
+
+      #+RESULTS:
+      : /home/kwaku/usr/bin/helm
+
+***** Fork the repo and  [[git@github.com:Momus/kubernetes-ci-cd.git][clone]]
+*** Clear out Minikube and Run a Test Pod
+***** clear
+      #+BEGIN_SRC sh
+        minikube stop
+        minikube delete 
+        sudo rm -rf ~/.minikube
+        sudo rm -rf ~/.kube
+      #+END_SRC
+***** Start Kubernetes cluster with Minikube
+      #+BEGIN_SRC sh
+        ## this is best run from a seperate terminal
+        # minikube start --memory 8000 --cpus 2 --kubernetes-version v1.6.0
+      #+END_SRC
+***** 
